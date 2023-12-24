@@ -240,9 +240,12 @@ impl FileDialog {
   }
 
   /// Show the mapped drives on Windows. Default is `true`.
-  #[cfg(windows)]
+  /// This feature does nothing on linux. 
   pub fn show_drives(mut self, drives: bool) -> Self {
+    #[cfg(windows)]
+    {
     self.show_drives = drives;
+    }
     self
   }
 
